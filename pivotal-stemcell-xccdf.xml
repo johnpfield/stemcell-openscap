@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1"
+	xmlns:cdf="http://checklists.nist.gov/xccdf/1.1" xmlns:cpe="http://cpe.mitre.org/dictionary/2.0"
+	xmlns:cpel="http://cpe.mitre.org/language/2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dsig="http://w3.org/2000/09/xmldsig#" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="CF-Ubuntu-stemcell"
+	xml:lang="en-US"
+	xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd"
+	style="SCAP_1.1" resolved="false">
+	<!-- Benchmark Information -->
+	<status date="2016-12-22">draft</status>
+	<title override="0">Pivotal Security Engineering: Guidance for securing Cloud Foundry Ubuntu stemcells</title>
+	<description override="0">This guide has been created to assist	deployers in effectively securing Cloud Foundry stemcells. </description>
+	<notice id="terms_of_use" xml:lang="en-US"> Do not attempt to implement
+		any of the settings in this guide without first testing them in a
+		non-operational environment. Pivotal assumes no responsibility
+		whatsoever for its use by other parties, and makes no guarantees,
+		expressed or implied, about its quality, reliability, or any other
+		characteristic.
+	</notice>
+	<front-matter xml:lang="en-US" override="0">TODO::Insert something here</front-matter>
+	<rear-matter xml:lang="en-US" override="0">
+		<xhtml:strong>Trademark Information</xhtml:strong>
+		<xhtml:br />
+		<xhtml:br />
+		Pivotal trademarks statement goes here, as appropriate.
+		<xhtml:br />
+		<xhtml:br />
+		<xhtml:br />
+		All other names are registered trademarks or trademarks of their respective companies.
+	</rear-matter>
+
+	<reference href="TODO::INSERT"></reference>
+
+	<!-- TODO: fix the following elements prior to release -->
+	<!-- <platform idref="cpe:/o:canonical:ubuntu:14::stemcell"/> -->
+	
+	<version>0.0.0.1</version>
+	<metadata>
+		<dc:publisher xmlns="http://purl.org/dc/elements/1.1/">Pivotal Software</dc:publisher>
+		<dc:creator>PCF Security Engineering</dc:creator>
+		<dc:contributor>John Field</dc:contributor>
+		<dc:source>https://github.com/pivotal-cf-experimental/benchmarks
+		</dc:source>
+	</metadata>
+	<model system="urn:xccdf:scoring:default" />
+	<model system="urn:xccdf:scoring:flat" />
+	<!-- ===================================================================================================== -->
+	<!-- ========================= Cloud Foundry Compliance Profiles ========================================= -->
+	<!-- ===================================================================================================== -->
+	<!--                                                                                                       -->
+	<!-- These profiles outline the specific guidance defined by the Cloud Foundry Community.                  -->
+	<!-- Each defines the set of XCCDF rules, and the values to be used when determining compliance.           -->
+	<!-- We can create profiles for FISMA as well as commercial standards such as PCI DSS or HIPAA.            -->
+
+	<Profile id="pci" abstract="false" prohibitChanges="false">
+		<title xml:lang="en-US" override="0">Pivotal Security Baseline v0.0.0.1</title>
+		<description xml:lang="en-US" override="0">This profile represents draft guidance that is a POC implementation.</description>
+
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.a" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.b" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.c" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.d" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.e" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.f" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.g" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.h" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.i" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.j" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.k" selected="true" />
+		<select idref="ubuntu-stemcell-rule-2.5.1.2.l" selected="true" />
+
+		<!-- Refine Values -->
+
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.a" selector="disabled" />
+		<!-- net.ipv4.conf.all.accept_source_route -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.b" selector="disabled" />
+		<!-- net.ipv4.conf.all.accept_redirectse -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.c" selector="disabled" />
+		<!-- net.ipv4.conf.all.secure_redirects -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.d" selector="enabled" />  <!--  We expect this one to fail! -->
+		<!-- net.ipv4.conf.all.log_martians -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.e" selector="disabled" />
+		<!-- net.ipv4.conf.default.accept_source_route -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.f" selector="disabled" />
+		<!-- net.ipv4.conf.default.accept_redirects -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.g" selector="disabled" />
+		<!-- net.ipv4.conf.default.secure_redirects -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.h" selector="enabled" />
+		<!-- net.ipv4.icmp_echo_ignore_broadcast -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.i" selector="enabled" />
+		<!-- net.ipv4.icmp_ignore_bogus_error_messages -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.j" selector="enabled" />
+		<!-- net.ipv4.tcp_syncookie -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.k" selector="enabled" />
+		<!-- net.ipv4.conf.all.rp_filter  -->
+		<refine-value idref="ubuntu-stemcell-var-2.5.1.2.l" selector="enabled" />
+		<!-- net.ipv4.conf.default.rp_filter -->
+	</Profile>
+
+	<!-- ==================================================================================================== -->
+	<!-- ======================================== SECURITY GUIDANCE ========================================= -->
+	<!-- ==================================================================================================== -->
+	<!--                                                                                                      -->
+	<!-- The following groups represent the collection of guidance for this document. For                     -->
+	<!-- specific recommendations regarding which rules to enable and which values to use, please refer to    -->
+	<!-- the XCCDF profiles above.                                                                            -->
+	<!-- P.S. Don't you love the super official looking banner? Makes XML look almost like COBOL :-)          -->
+	<!-- This seems to be the preferred style for these security automation artifacts.                         -->
+
+	<Group id="ubuntu-stemcell-group-2" hidden="false"
+		prohibitChanges="false" abstract="false" selected="true" weight="1.0">
+		<title xml:lang="en-US" override="0">Network Configuration Stuff
+		</title>
+		<description override="0">TODO::INSERT</description>
+
+		<Group id="ubuntu-stemcell-group-2.5" hidden="false"
+			prohibitChanges="false" abstract="false" selected="true" weight="1.0">
+			<title xml:lang="en-US" override="0">Network Configuration and Firewalls</title>
+			<description xml:lang="en-US" override="0">
+				Network security settings for CF stemcells. 
+			</description>
+			<Group id="ubuntu-stemcell-group-2.5.1" hidden="false"
+				prohibitChanges="false" abstract="false" selected="true" weight="1.0">
+				<title xml:lang="en-US" override="0">Ubuntu kernel parameters that affect network security</title>
+				<description xml:lang="en-US" override="0"> 
+					The sysctl utility is usually used to set a number of parameters which affect the operation of the Linux kernel. 
+					In the case of BOSH these are stored in a supplementary configuration file.
+				</description>
+				<Group id="ubuntu-stemcell-group-2.5.1.2" hidden="false"
+					prohibitChanges="false" abstract="false" selected="true" weight="1.0">
+					<title xml:lang="en-US" override="0">Network Parameters for Hosts and Routers</title>
+					<description xml:lang="en-US" override="0">
+						The file /etc/sysctl.d/60-bosh-sysctl.conf should contain
+						the following lines:
+						<xhtml:br />
+						<xhtml:br />
+						net.ipv4.conf.all.accept_source_route = 0
+						<xhtml:br />
+						net.ipv4.conf.all.accept_redirects = 0
+						<xhtml:br />
+						net.ipv4.conf.all.secure_redirects = 0
+						<xhtml:br />
+						net.ipv4.conf.all.log_martians = 1
+						<xhtml:br />
+						net.ipv4.conf.default.accept_source_route = 0
+						<xhtml:br />
+						net.ipv4.conf.default.accept_redirects = 0
+						<xhtml:br />
+						net.ipv4.conf.default.secure_redirects = 0
+						<xhtml:br />
+						net.ipv4.icmp_echo_ignore_broadcasts = 1
+						<xhtml:br />
+						net.ipv4.icmp_ignore_bogus_error_messages = 1
+						<xhtml:br />
+						net.ipv4.tcp_syncookies = 1
+						<xhtml:br />
+						net.ipv4.conf.all.rp_filter = 1
+						<xhtml:br />
+						net.ipv4.conf.default.rp_filter = 1
+						<xhtml:br />
+						<xhtml:br />
+						These options help to ensure the Ubuntu stemcell is protected against certain
+						types of IPv4 protocol attacks.
+					</description>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.a" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.all.accept_source_route</title>
+						<description xml:lang="en-US" override="0">Trackers could be using source-routed packets to generate traffic that seems to
+							be intra-net, but actually was created outside and has been redirected.
+						</description>
+						<value selector="">0</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.b" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.all.accept_redirects</title>
+						<description xml:lang="en-US" override="0">Disable ICMP Redirect Acceptance?
+						</description>
+						<value selector="">0</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.c" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.all.secure_redirects</title>
+						<description xml:lang="en-US" override="0">Enable to prevent hijacking of routing path by
+							only allowing redirects from gateways known in routing table.
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.d" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.all.log_martians</title>
+						<description xml:lang="en-US" override="0">Disable so you don't Log Spoofed Packets, Source Routed Packets, Redirect Packets
+						</description>
+						<value selector="">0</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.e" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.default.accept_source_route
+						</title>
+						<description xml:lang="en-US" override="0">Disable IP source routing?</description>
+						<value selector="">0</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.f" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.default.accept_redirects
+						</title>
+						<description xml:lang="en-US" override="0">Disable ICMP Redirect Acceptance?
+						</description>
+						<value selector="">0</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.g" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.default.secure_redirects
+						</title>
+						<description xml:lang="en-US" override="0">Log packets with impossible addresses to kernel log?
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.h" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.icmp_echo_ignore_broadcast</title>
+						<description xml:lang="en-US" override="0">Ignore all ICMP ECHO and TIMESTAMP requests sent to it via broadcast/multicast
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.i" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.icmp_ignore_bogus_error_messages
+						</title>
+						<description xml:lang="en-US" override="0">Enable to prevent certain types of attacks
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.j" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.tcp_syncookie</title>
+						<description xml:lang="en-US" override="0">Enable to turn on TCP SYN Cookie	Protection
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.k" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.all.rp_filter</title>
+						<description xml:lang="en-US" override="0">Enable to enforce sanity checking, also called ingress filtering or egress
+							filtering. The point is to drop a packet if the source and destination IP addresses in the IP header do not make
+							sense when considered in light of the physical interface on which it arrived.
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Value id="ubuntu-stemcell-var-2.5.1.2.l" type="string"
+						operator="equals" prohibitChanges="false" abstract="false" hidden="false"
+						interactive="0">
+						<title override="0">net.ipv4.conf.default.rp_filter</title>
+						<description xml:lang="en-US" override="0">Enables source route verification
+						</description>
+						<value selector="">1</value>
+						<value selector="enabled">1</value>
+						<value selector="disabled">0</value>
+					</Value>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.a" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4236-6:Set
+							net.ipv4.conf.all.accept_source_route for Hosts and Routers
+						</title>
+						<description override="0">
+							Accepting source routed packets should be: <sub idref="ubuntu-stemcell-var-2.5.1.2.a" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4236-6</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.a"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20115" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20115" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.b" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4217-6:Set
+							net.ipv4.conf.all.accept_redirects for Hosts and Routers</title>
+						<description override="0">
+							Accepting ICMP redirects should be: <sub idref="ubuntu-stemcell-var-2.5.1.2.b" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4217-6</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.b"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20116" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20116" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.c" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-3472-8:Set
+							net.ipv4.conf.all.secure_redirects for Hosts and Routers</title>
+						<description override="0">
+							Accepting "secure" ICMP redirects (those from gateways listed in the default gateways list) should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.c" /> for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-3472-8</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.c"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20117" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20117" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.d" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4320-8:Set
+							net.ipv4.conf.all.log_martians for Hosts and Routers</title>
+						<description override="0">
+							Logging of "martian" packets (those with impossible addresses) should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.d" /> for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4320-8</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.d"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20118" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20118" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.e" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4091-5:Set
+							net.ipv4.conf.default.accept_source_route for Hosts and
+							Routers
+						</title>
+						<description override="0">
+							The default setting for accepting source routed packets should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.e" /> for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4091-5</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.e"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20119" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20119" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.f" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4186-3:Set
+							net.ipv4.conf.default.accept_redirects for Hosts and
+							Routers
+						</title>
+						<description override="0">
+							The default setting for accepting ICMP redirects should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.f" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4186-3</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.f"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20120" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20120" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.g" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-3339-9:Set
+							net.ipv4.conf.default.secure_redirects for Hosts and
+							Routers
+						</title>
+						<description override="0">
+							The default setting for accepting "secure" ICMP redirects (those from gateways listed in the default gateways list) should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.g" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-3339-9</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.g"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20121" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20121" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.h" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-3644-2:Set
+							net.ipv4.icmp_echo_ignore_broadcasts for Hosts and
+							Routers
+						</title>
+						<description override="0">
+							Ignoring ICMP echo requests (pings) sent to broadcast / multicast addresses should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.h" /> for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-3644-2</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.h"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20122" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20122" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.i" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4133-5:Set
+							net.ipv4.icmp_ignore_bogus_error_messages for Hosts and
+							Routers
+						</title>
+						<description override="0">
+							Ignoring bogus ICMP responses to broadcasts should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.i" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4133-5</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.i"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20123" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20123" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.j" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4265-5:Set net.ipv4.tcp_syncookies for
+							Hosts and Routers</title>
+						<description override="0">
+							Sending TCP syncookies should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.j" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4265-5</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.j"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20124" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20124" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.k" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-4080-8:Set net.ipv4.conf.all.rp_filter
+							for Hosts and Routers</title>
+						<description override="0">
+							Performing source validation by reverse path should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.k" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-4080-8</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.k"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20125" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20125" />
+						</check>
+					</Rule>
+					<Rule id="ubuntu-stemcell-rule-2.5.1.2.l" selected="false"
+						weight="10.0" prohibitChanges="false" abstract="false" hidden="false"
+						role="full" severity="unknown">
+						<status date="2010-07-01">accepted</status>
+						<version update="1" />
+						<title override="0">CCE-3840-6:Set
+							net.ipv4.conf.default.rp_filter for Hosts and Routers</title>
+						<description override="0">
+							The default setting for performing source validation by reverse path should be:
+							<sub idref="ubuntu-stemcell-var-2.5.1.2.l" />
+							for all interfaces as appropriate.
+						</description>
+						<ident system="http://cce.mitre.org">CCE-3840-6</ident>
+						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+							selector="">
+							<check-export value-id="ubuntu-stemcell-var-2.5.1.2.l"
+								export-name="oval:io.pivotal.bosh.stemcell:var:20126" />
+							<check-content-ref href="pivotal-stemcell-oval.xml"
+								name="oval:io.pivotal.bosh.stemcell:def:20126" />
+						</check>
+					</Rule>
+				</Group>
+			</Group>
+		</Group>
+	</Group>
+</Benchmark>

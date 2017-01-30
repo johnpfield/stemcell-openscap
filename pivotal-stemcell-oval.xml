@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:lin-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix http://oval.mitre.org/language/version5.8/ovaldefinition/complete/unix-definitions-schema.xsd
+	http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/version5.8/ovaldefinition/complete/independent-definitions-schema.xsd
+	http://oval.mitre.org/XMLSchema/oval-definitions-5#linux http://oval.mitre.org/language/version5.8/ovaldefinition/complete/linux-definitions-schema.xsd
+	http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/version5.8/ovaldefinition/complete/oval-definitions-schema.xsd
+	http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/version5.8/ovaldefinition/complete/oval-common-schema.xsd">
+	<generator>
+		<oval:product_name>Spring Source Tool suite XML Editors</oval:product_name>
+		<oval:schema_version>5.8</oval:schema_version>
+		<oval:timestamp>2017-01-30T12:00:00-05:00</oval:timestamp>
+	</generator>
+	<definitions>
+		<!-- ==================================================================================================== -->
+		<!-- ==========================================  DEFINITIONS  =========================================== -->
+		<!-- ==================================================================================================== -->
+
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20112" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts Only</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4151-70" source="CCE"/>  <!-- appended 0 -->
+				<description>The default setting for sending ICMP redirects should be disabled for network interfaces.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20112"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20113" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts Only</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4155-80" source="CCE"/> <!-- appended 0 -->
+				<description>Sending ICMP redirects should be disabled for all interfaces.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20113"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20114" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts Only</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-3561-80" source="CCE"/>  <!-- appended 0 -->
+				<description>IP forwarding should be disabled.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20114"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20115" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4236-60" source="CCE"/>  <!-- appended 0 -->
+				<description>Accepting source routed packets should be enabled or disabled for all interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20115"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20116" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4217-60" source="CCE"/>  <!-- appended 0 -->
+				<description>Accepting ICMP redirects should be enabled or disabled for all interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20116"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20117" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-3472-80" source="CCE"/>  <!-- appended 0 -->
+				<description>Accepting "secure" ICMP redirects (those from gateways listed in the default gateways list) should be enabled or disabled for all interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20117"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20119" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4091-50" source="CCE"/>  <!-- appended 0 -->
+				<description>The default setting for accepting source routed packets should be enabled or disabled for network interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20119"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20120" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4186-30" source="CCE"/>  <!-- appended 0 -->
+				<description>The default setting for accepting ICMP redirects should be enabled or disabled for network interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20120"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20121" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-3339-90" source="CCE"/>  <!-- appended 0 -->
+				<description>The default setting for accepting "secure" ICMP redirects (those from gateways listed in the default gateways list) should be enabled or disabled for network interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20121"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20122" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-3644-20" source="CCE"/>  <!-- appended 0 -->
+				<description>Ignoring ICMP echo requests (pings) sent to broadcast / multicast addresses should be enabled or disabled as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20122"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20123" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4133-50" source="CCE"/>  <!-- appended 0 -->
+				<description>Ignoring bogus ICMP responses to broadcasts should be enabled or disabled as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20123"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20124" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4265-50" source="CCE"/> <!-- appended 0 -->
+				<description>Sending TCP syncookies should be enabled or disabled as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20124"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20125" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-4080-80" source="CCE"/>  <!-- appended 0 -->
+				<description>Performing source validation by reverse path should be enabled or disabled for all interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20125"/>
+			</criteria>
+		</definition>
+		<definition class="compliance" id="oval:io.pivotal.bosh.stemcell:def:20126" version="1">
+			<metadata>
+				<title>Network Parameters for Hosts and Routers</title>
+				<affected family="unix">
+					<platform>Cloud Foundry Ubuntu stemcell</platform>
+				</affected>
+				<reference ref_id="CCE-3840-60" source="CCE"/> <!-- appended 0 -->
+				<description>The default setting for performing source validation by reverse path should be enabled or disabled for network interfaces as appropriate.</description>
+			</metadata>
+			<criteria>
+				<criterion test_ref="oval:io.pivotal.bosh.stemcell:tst:20126"/>
+			</criteria>
+		</definition>
+	</definitions>
+
+	<tests>
+		<!-- OVAL Repostiory defniition tests -->
+		<uname_test id="oval:org.mitre.oval:tst:3929" version="1" comment="ix64 architecture" check_existence="at_least_one_exists" check="at least one" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+			<object object_ref="oval:org.mitre.oval:obj:2759"/>
+			<state state_ref="oval:org.mitre.oval:ste:3081"/>
+		</uname_test>
+
+		<!-- end oval repository definition tests -->
+
+
+
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20112" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.default\.send_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20112"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20112"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20113" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.send_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20113"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20113"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20114" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.ip_forward[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20114"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20114"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20115" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.accept_source_route[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20115"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20115"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20116" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.accept_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20116"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20116"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20117" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.secure_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20117"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20117"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20118" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.log_martians[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20118"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20118"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20119" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.default\.accept_source_route[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20119"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20119"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20120" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.default\.accept_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20120"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20120"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20121" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.default\.secure_redirects[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20121"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20121"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20122" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.icmp_echo_ignore_broadcasts[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20122"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20122"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20123" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.icmp_ignore_bogus_error_messages[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20123"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20123"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20124" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.tcp_syncookies[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20124"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20124"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20125" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.all\.rp_filter[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20125"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20125"/>
+		</ind-def:textfilecontent54_test>
+		<ind-def:textfilecontent54_test check_existence="all_exist" id="oval:io.pivotal.bosh.stemcell:tst:20126" version="1" check="all" comment="Tests the value of the ^[\s]*net\.ipv4\.conf\.default\.rp_filter[\s]*=[\s]*([\S].*) expression in the /etc/sysctl.d/60-bosh-sysctl.conf file">
+			<ind-def:object object_ref="oval:io.pivotal.bosh.stemcell:obj:20126"/>
+			<ind-def:state state_ref="oval:io.pivotal.bosh.stemcell:ste:20126"/>
+		</ind-def:textfilecontent54_test>
+
+
+	</tests>
+	<objects>
+		<!-- OVAL Repository definition objects -->
+		<uname_object id="oval:org.mitre.oval:obj:2759" version="1" comment="The single uname object." xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"/>
+		<!--  Not aware of any id for this specific Ubuntu distribution -->
+		<!-- end OVAL repository definition objects -->
+
+
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20112" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.default\.send_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20113" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.send_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20114" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.ip_forward[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20115" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.accept_source_route[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20116" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.accept_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20117" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.secure_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20118" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.log_martians[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20119" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.default\.accept_source_route[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20120" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.default\.accept_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20121" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.default\.secure_redirects[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20122" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.icmp_echo_ignore_broadcasts[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20123" version="2">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.icmp_ignore_bogus_error_responses[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20124" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.tcp_syncookies[\s]*=[\s]*([^\s]*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20125" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.all\.rp_filter[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+		<ind-def:textfilecontent54_object id="oval:io.pivotal.bosh.stemcell:obj:20126" version="1">
+			<ind-def:path>/etc/sysctl.d</ind-def:path>
+			<ind-def:filename>60-bosh-sysctl.conf</ind-def:filename>
+			<ind-def:pattern operation="pattern match">^[\s]*net\.ipv4\.conf\.default\.rp_filter[\s]*=[\s]*([\S].*)</ind-def:pattern>
+			<ind-def:instance datatype="int">1</ind-def:instance>
+		</ind-def:textfilecontent54_object>
+
+	</objects>
+
+
+	<states>
+		<!-- OVAL Repository defintion states -->
+		<uname_state id="oval:org.mitre.oval:ste:3081" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix">
+			<processor_type>x86_64</processor_type>
+		</uname_state>
+
+		<!-- end OVAL Reposition definition states -->
+
+<!-- 		<family_state id="oval:gov.nist.usgcb.ubuntu:ste:20001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"> -->
+<!-- 			<family>unix</family> -->
+<!-- 		</family_state> -->
+
+
+
+
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20112" version="1">
+			<ind-def:subexpression datatype="int" operation="equals">0</ind-def:subexpression>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20113" version="1">
+			<ind-def:subexpression datatype="int" operation="equals">0</ind-def:subexpression>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20114" version="1">
+			<ind-def:subexpression datatype="int" operation="equals">0</ind-def:subexpression>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20115" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20115"/>
+		</ind-def:textfilecontent54_state>
+		
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20116" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20116"/>
+		</ind-def:textfilecontent54_state>
+				
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20117" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20117"/>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20118" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20118"/>
+		</ind-def:textfilecontent54_state>
+
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20119" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20119"/>
+		</ind-def:textfilecontent54_state>
+
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20120" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20120"/>
+		</ind-def:textfilecontent54_state>
+
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20121" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20121"/>
+		</ind-def:textfilecontent54_state>
+
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20122" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20122"/>
+		</ind-def:textfilecontent54_state>
+		
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20123" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20123"/>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20124" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20124"/>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20125" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20125"/>
+		</ind-def:textfilecontent54_state>
+		<ind-def:textfilecontent54_state id="oval:io.pivotal.bosh.stemcell:ste:20126" version="1">
+			<ind-def:subexpression var_check="all" operation="equals" var_ref="oval:io.pivotal.bosh.stemcell:var:20126"/>
+		</ind-def:textfilecontent54_state>
+	
+	</states>
+	<variables>
+
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20115" version="1" datatype="string" comment="External variable for definition 20115"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20116" version="1" datatype="string" comment="External variable for definition 20116"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20117" version="1" datatype="string" comment="External variable for definition 20117"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20118" version="1" datatype="string" comment="External variable for definition 20118"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20119" version="1" datatype="string" comment="External variable for definition 20119"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20120" version="1" datatype="string" comment="External variable for definition 20120"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20121" version="1" datatype="string" comment="External variable for definition 20121"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20122" version="1" datatype="string" comment="External variable for definition 20122"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20123" version="1" datatype="string" comment="External variable for definition 20123"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20124" version="1" datatype="string" comment="External variable for definition 20124"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20125" version="1" datatype="string" comment="External variable for definition 20125"/>
+		<external_variable id="oval:io.pivotal.bosh.stemcell:var:20126" version="1" datatype="string" comment="External variable for definition 20126"/>
+		
+	</variables>
+</oval_definitions>
